@@ -1,10 +1,10 @@
 import React from "react";
-import { Settings, Plus, ArrowUp } from "lucide-react";
+import { Settings, Plus } from "lucide-react";
 import Filterarrows from "../../../public/Filterarrows";
 
 const FilterButtons = () => {
   return (
-    <div className="flex space-x-4">
+    <div className="flex space-x-4 px-8   ">
      
       <button className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2">
         <Settings className="w-5 h-5" />

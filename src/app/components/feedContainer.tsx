@@ -26,12 +26,37 @@ const feedDataArray = [
   
   },
   {
-    title: "Subscribe to our newsletter for the latest tech trends",
-    tags: [],
-    readTime: '',
+    title: "New AI breakthrough promises faster medical diagnosis",
+    tags: ['#ai', '#healthcare', '#tech-news'],
+    readTime: '2 days ago • 4m read time',
     image: '/usgs-ls50RS4hgjk-unsplash.jpg',
-    
-  }
+  
+  },{
+    title: "New AI breakthrough promises faster medical diagnosis",
+    tags: ['#ai', '#healthcare', '#tech-news'],
+    readTime: '2 days ago • 4m read time',
+    image: '/usgs-ls50RS4hgjk-unsplash.jpg',
+  
+  },{
+    title: "New AI breakthrough promises faster medical diagnosis",
+    tags: ['#ai', '#healthcare', '#tech-news'],
+    readTime: '2 days ago • 4m read time',
+    image: '/usgs-ls50RS4hgjk-unsplash.jpg',
+  
+  },{
+    title: "New AI breakthrough promises faster medical diagnosis",
+    tags: ['#ai', '#healthcare', '#tech-news'],
+    readTime: '2 days ago • 4m read time',
+    image: '/usgs-ls50RS4hgjk-unsplash.jpg',
+  
+  },{
+    title: "New AI breakthrough promises faster medical diagnosis",
+    tags: ['#ai', '#healthcare', '#tech-news'],
+    readTime: '2 days ago • 4m read time',
+    image: '/usgs-ls50RS4hgjk-unsplash.jpg',
+  
+  },
+ 
 ];
 
 const FeedCard = ({ feedData }:any) => (
@@ -77,7 +102,7 @@ const FeedCard = ({ feedData }:any) => (
 );
 
 const FeedContainer = () => (
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 bg-[#0E1217] p-4">
+  <div className="grid grid-cols-1 grid-cols-ga sm:grid-cols-2 lg:grid-cols-3 gap-9 bg-[#0E1217] p-8">
     {feedDataArray.map((feedData, index) => (
       <FeedCard key={index} feedData={feedData} />
     ))}

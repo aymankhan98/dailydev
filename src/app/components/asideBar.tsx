@@ -31,6 +31,26 @@ const sidebarData = [
     ],
   },
   {
+    section: 'Discover',
+    items: [
+      { icon: <Flame size={18} />, text: 'Explore' },
+      { icon: <MessageSquare size={18} />, text: 'Discussions' },
+      { icon: <Hash size={18} />, text: 'Tags' },
+      { icon: <Globe size={18} />, text: 'Sources' },
+      { icon: <Award size={18} />, text: 'Leaderboard' },
+    ],
+  },
+  {
+    section: 'Discover',
+    items: [
+      { icon: <Flame size={18} />, text: 'Explore' },
+      { icon: <MessageSquare size={18} />, text: 'Discussions' },
+      { icon: <Hash size={18} />, text: 'Tags' },
+      { icon: <Globe size={18} />, text: 'Sources' },
+      { icon: <Award size={18} />, text: 'Leaderboard' },
+    ],
+  },
+  {
     section: 'Activity',
     items: [
       { icon: <Link size={18} />, text: 'Submit a link' },
