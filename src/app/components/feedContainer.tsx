@@ -81,6 +81,7 @@ const FeedCard = ({ feedData }:any) => (
         <img src={feedData.image} alt={feedData.title} className="w-full h-40 object-cover rounded-md mb-4" />
         <div className="flex justify-between text-gray-400">
           <ArrowUp className="w-5 h-5" />
+          <ArrowUp className="w-5 h-5" />
           <ArrowDown className="w-5 h-5" />
           <MessageSquare className="w-5 h-5" />
           <Bookmark className="w-5 h-5" />
