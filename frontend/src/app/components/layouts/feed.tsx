@@ -1,20 +1,35 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import FilterButtons from "../common/fiterButton";
 import FeedCard from "../common/feedCard";
 import { FeedItem } from "@/app/interfaces/feedInterface";
+import FilterButtons from "../common/fiterButton";
+
+// Define the type for the backend data
+interface BackendFeedItem {
+  _id: string;
+  title: string;
+  hashtags: string[];
+  readTime: number;
+  image?: string;
+  // Add any other fields if necessary
+}
 
 function Feed() {
   const [feedData, setFeedData] = useState<FeedItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Update the URL to point to your backend API
-    fetch("http://localhost:5000/data")
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchFeed = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/feed");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data: BackendFeedItem[] = await response.json();
         console.log("Data fetched from backend:", data);
 
-        const formattedData = data.map((item: any) => ({
+        const formattedData: FeedItem[] = data.map((item) => ({
           _id: item._id,
           title: item.title,
           hashtags: item.hashtags,
@@ -23,9 +38,29 @@ function Feed() {
         }));
 
         setFeedData(formattedData);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          console.error("Error fetching data:", error.message);
+          setError(error.message);
+        } else {
+          console.error("Unexpected error:", error);
+          setError("An unexpected error occurred.");
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFeed();
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <div className="lg:p-11 col-span-5 lg:flex lg:flex-col flex flex-col p-4 h-full overflow-y-auto no-scrollbar">
